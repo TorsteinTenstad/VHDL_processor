@@ -7,7 +7,7 @@ proc make_fpga { project } {
     #source ./tcl/proc.tcl
 
     # Add source files
-    source ./tcl/read_src.tcl
+    read_vhdl ./src/flip_flop.vhd
 
     # Set top level
     #set_property top fpga_ZC702 [current_fileset]

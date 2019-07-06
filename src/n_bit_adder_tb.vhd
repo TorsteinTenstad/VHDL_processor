@@ -18,34 +18,34 @@ component n_bit_adder is
            carry_out : out STD_LOGIC);
 end component;
 
-signal A_sig : STD_LOGIC_VECTOR (n-1 downto 0);
-signal B_sig : STD_LOGIC_VECTOR (n-1 downto 0);
-signal sum_sig : STD_LOGIC_VECTOR (n-1 downto 0);
+signal A : STD_LOGIC_VECTOR (n-1 downto 0);
+signal B : STD_LOGIC_VECTOR (n-1 downto 0);
+signal sum : STD_LOGIC_VECTOR (n-1 downto 0);
 signal overflow : STD_LOGIC;
 
 begin
 
 UUT : n_bit_adder
     generic map(n => n)
-    port map(A => A_sig, 
-             B => B_sig, 
-             sum => sum_sig, 
+    port map(A => A, 
+             B => B, 
+             sum => sum, 
              carry_in => '0',
              carry_out => overflow);
 
 process
 begin
-    A_sig <= "01101010";
-    B_sig <= "01011010";
+    A <= "01101010";
+    B <= "01011010";
     wait for 1 ns;
-    A_sig <= "01111001";
-    B_sig <= "00100011";
+    A <= "01111001";
+    B <= "00100011";
     wait for 1 ns;
-    A_sig <= "11111111";
-    B_sig <= "00000000";
+    A <= "11111111";
+    B <= "00000000";
     wait for 1 ns;
-    A_sig <= "11111111";
-    B_sig <= "11111111";
+    A <= "11111111";
+    B <= "11111111";
     wait for 1 ns;
 end process;
 end Behavioral;

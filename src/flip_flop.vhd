@@ -12,7 +12,7 @@ end flip_flop;
 architecture Behavioral of flip_flop is
 
 begin
-    process(clk, reset)
+    process(clk, reset, enable)
     begin
         if reset = '1' then
 		 Q <= '0';

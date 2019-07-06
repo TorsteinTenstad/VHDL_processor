@@ -4,9 +4,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity n_bit_register is
     Generic(n : integer := 8);
     Port (clk : in STD_LOGIC;
-          input : in STD_LOGIC_VECTOR (n-1 downto 0);
+          data_in : in STD_LOGIC_VECTOR (n-1 downto 0);
           data : out STD_LOGIC_VECTOR (n-1 downto 0);
-          output : out STD_LOGIC_VECTOR (n-1 downto 0);
+          data_out : out STD_LOGIC_VECTOR (n-1 downto 0);
           write_enable : in STD_LOGIC;
           output_enable : in STD_LOGIC;
           clear : in STD_LOGIC);
@@ -38,13 +38,13 @@ GEN : for i in 0 to n-1 generate
     flip_flop_inst : flip_flop
     port map(clk    => clk,
              enable => write_enable, 
-             D      => input(i), 
+             D      => data_in(i), 
              Q      => data_sig(i),
              reset  => clear);
 
     tri_state_buffer_inst : tri_state_buffer
     port map(input  => data_sig(i),
-             output => output(i),
+             output => data_out(i),
              enable => output_enable);
        
 end generate GEN;

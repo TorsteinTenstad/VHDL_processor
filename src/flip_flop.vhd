@@ -2,11 +2,11 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity flip_flop is
-Port   (clk : in std_logic;
-        enable : in std_logic;
-        D : in std_logic;
-        Q : out std_logic;
-        reset : in std_logic);
+Port   (clk : in STD_LOGIC;
+        enable : in STD_LOGIC;
+        D : in STD_LOGIC;
+        Q : out STD_LOGIC;
+        reset : in STD_LOGIC);
 end flip_flop;
 
 architecture Behavioral of flip_flop is
